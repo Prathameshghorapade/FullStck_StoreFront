@@ -1,6 +1,7 @@
 package com.storefront.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import lombok.Data;
@@ -18,8 +19,9 @@ public class Product {
     private double price;
 
 
-    @JoinColumn(name = "category_id",nullable = false)
     @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    @JsonIgnoreProperties("products")  // prevent infinite loop
     private Category category;
 
 

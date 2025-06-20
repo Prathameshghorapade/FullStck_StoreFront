@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/storefront")
+@RequestMapping("/storefront/category")
 public class CategoryController {
 
     @Autowired
@@ -19,8 +19,5 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
-    @PostMapping("/add")
-    public Category createCategory(@RequestBody Category category) {
-        return categoryService.createCategory(category);
-    }
+
 }
